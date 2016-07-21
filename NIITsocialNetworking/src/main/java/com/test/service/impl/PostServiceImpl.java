@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.test.dao.PostDAO;
 import com.test.model.Post;
+import com.test.model.User;
 import com.test.service.PostService;
 @Service
 @Transactional
@@ -24,4 +25,20 @@ public class PostServiceImpl implements PostService {
 		return postDAO.getAllPosts();
 	}
 
+	
+	public void editPost(Post post) {
+		postDAO.editPost(post);
+		
+	}
+
+	
+	public void deletePost(int id) {
+		postDAO.deletePost(id);
+		
+	}
+
+	
+	public Post getPost(int id) {
+		return postDAO.getPost(id);
+	}
 }

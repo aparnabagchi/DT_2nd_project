@@ -34,7 +34,7 @@
 			$.cometChat._disconnecting = false;
 			$.cometChat.loginUserName  = username;
 
-            var cometdURL = location.protocol + "//" + location.host + config.contextPath + "/SocialNetworking";
+            var cometdURL = location.protocol + "//" + location.host + config.contextPath + "/NIITsocialNetworking";
 
             $.cometd.configure({
                 url: cometdURL,

@@ -3,6 +3,7 @@ package com.test.controller;
 import java.security.Principal;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -13,11 +14,15 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.test.model.Post;
 import com.test.model.User;
 import com.test.service.PostService;
+import com.test.utils.DateUtils;
 
 
 
@@ -64,4 +69,37 @@ public class PostController {
 		map.addAttribute("posts", post);
 		return "post";
 	}
+	String user="";
+	@RequestMapping("/editPost")
+	public String editPostById(@RequestParam("id") int id, Model model){
+		Post p = postService.getPost(id);
+		user=p.getPostUser();
+		model.addAttribute("post", p);
+		return "editPost";
+	}
+	 static int editNumber=0;
+	@RequestMapping(value="/edit/{id}", method=RequestMethod.POST)
+	public String editPost(@PathVariable("id")Integer id,
+	        @ModelAttribute("post") Post post, Map model){
+		
+		 editNumber++;
+	
+		// String date=DateUtils.getDate(new Date());
+		 Date date=new Date();
+	     post.setPostUser(user);
+	     post.setDate(date);
+	   
+	    postService.editPost(post);
+	    List postList=postService.getAllPosts();
+	    model.put("postList", postList);
+	 
+	    return "redirect:/post";
+	}
+	
+	@RequestMapping("/delete")
+	 public String deleteUser(@RequestParam int id) {
+		postService.deletePost(id);
+	  return "redirect:post";
+	 }
+	 
 }

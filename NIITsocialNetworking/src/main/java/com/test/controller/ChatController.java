@@ -1,5 +1,4 @@
 package com.test.controller;
-
 import java.security.Principal;
 
 import org.springframework.stereotype.Controller;
@@ -24,3 +23,5 @@ public class ChatController {
     	return "application";
     }
 }
+
+
