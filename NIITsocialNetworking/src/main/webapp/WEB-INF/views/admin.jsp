@@ -35,6 +35,9 @@ $(function(){
         <a href="${pageContext.request.contextPath}/allUsers" class="list-group-item">
             <i class="fa fa-comment-o"></i> All Users
         </a>
+         <a href="${pageContext.request.contextPath}/createForum" class="list-group-item">
+            <i class="fa fa-search"></i> New Forum Topic
+        </a>
         <a href="${pageContext.request.contextPath}/post" class="list-group-item">
             <i class="fa fa-search"></i> All BLOGS
         </a>

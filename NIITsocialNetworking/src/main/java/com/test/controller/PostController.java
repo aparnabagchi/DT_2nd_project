@@ -1,6 +1,7 @@
 package com.test.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -68,6 +69,21 @@ public class PostController {
 		List<Post> post=postService.getAllPosts();
 		map.addAttribute("posts", post);
 		return "post";
+	}
+	@RequestMapping(value="/myPosts")
+	public String myPosts(ModelMap map,Principal principal)
+	{
+		List<Post> post=postService.getAllPosts();
+		List<Post> myPosts=new ArrayList<Post>();
+		for(Post p : post)
+		{
+			if(principal.getName().equals(p.getPostUser()))
+			{
+		      myPosts.add(p);
+			}
+		}
+		map.addAttribute("myPosts", myPosts);
+		return "myPosts";
 	}
 	String user="";
 	@RequestMapping("/editPost")

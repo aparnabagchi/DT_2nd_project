@@ -22,7 +22,7 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="org.h2.Driver" />
-		<property name="url" value="jdbc:h2:tcp://localhost/~/socialNetworking" />
+		<property name="url" value="jdbc:h2:tcp://localhost/~/socialNetworkingtest" />
 		<property name="username" value="sa" />
 		<property name="password" value="" />
 	</bean>

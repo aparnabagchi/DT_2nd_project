@@ -19,7 +19,9 @@ noty('<a href="http://www.jqueryscript.net/tags.php?/Notification/">Notification
               <li><a href="editUser">Update Profile</a></li>
               <li><a href="post">All BLOGS</a></li>
               <li><a href="newPost">New BLOGS</a></li>
+              <li><a href="myPosts">My BLOGS</a></li>
               <li><a href="Chat">Chat</a></li>
+              <li><a href="allForums">All Forums</a></li>
             </ul>
 			<br><br>
 			<div class="StoreCataloge">

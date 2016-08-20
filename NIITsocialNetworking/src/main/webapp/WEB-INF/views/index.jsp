@@ -321,6 +321,30 @@
 				</div>
 			</div>
 			</marquee>
+			<div style="width: 100%; height: 30px; background-color: lightblue;">
+
+			<h2 style="color: blue; font-size: 20px;text-align: center;">Discussion Forum</h2>
+			</div>
+			<marquee  scrollamount="2" direction="up" loop="true" onmouseover="stop()" onmouseout="start()"> 
+			<div class="row">
+
+
+
+
+				<div style="padding-left: 50px;height: 300px;">
+
+					<c:if test="${not empty indexForum}">
+						<c:forEach var="forum" items="${indexForum}">
+							<p>	<a href="<spring:url value="/discussion?id=${forum.id}" />">${forum.forumTopic} &nbsp;
+							
+							By :${forum.forumUser} on &nbsp;${forum.date}</a></p>
+                           <hr>
+						</c:forEach>
+					</c:if>
+					
+				</div>
+			</div>
+			</marquee>
 			<c:if test="${pageContext.request.userPrincipal.name == null}">
 						<p>
 							Please <a href="<c:url value="/login" />">Sign in</a> to post

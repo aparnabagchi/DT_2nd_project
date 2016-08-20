@@ -113,12 +113,6 @@ public class FrontController {
 	
 	
 	
-	@RequestMapping(value="/createForum")
-	public String createForum()
-	{
-		return "createForum";
-	}
-	
 	
 	
 	
